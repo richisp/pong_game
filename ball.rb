@@ -1,8 +1,8 @@
 require_relative 'game_object'
 
 class Ball < GameObject
-  WIDTH = 5
-  HEIGHT = 5
+  WIDTH = 10
+  HEIGHT = 10
 
   attr_reader :speed
   def initialize(x_coordinate, y_coordinate, speed)

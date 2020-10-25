@@ -25,8 +25,9 @@ class Paddle < GameObject
   end
 
   def bot_move(ball_center_y_coordinate, game_window_height)
-    diff = ball_center_y_coordinate - self.center_y_coordinate
-    self.y_coordinate += diff * 0.3
+    ball_center_y_coordinate - self.center_y_coordinate > 0 ? direction = 1 : direction = -1
+
+    self.y_coordinate += 5 * direction
 
     self.y_coordinate = 0 if self.top_coordinate <= 0
     self.y_coordinate = game_window_height - self.height if self.bottom_coordinate >= game_window_height
