@@ -19,11 +19,9 @@ class Ball < GameObject
     reflect_vertical if collide_wall?(game_window_height)
 
     if collide_with?(player_paddle)
-      reflect_horizontal
-      increase_speed
+      bounce
     elsif collide_with?(bot_paddle)
-      reflect_horizontal
-      increase_speed
+      bounce
     elsif x_coordinate <= 0
       life[:left] -= 1
       speed[:horizontal] = 5
@@ -43,8 +41,9 @@ class Ball < GameObject
     self.speed[:horizontal] *= 1.1
   end
 
-  def reflect_horizontal
+  def bounce
     self.speed[:horizontal] *= -1
+    increase_speed
   end
 
   def reflect_vertical
