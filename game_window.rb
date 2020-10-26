@@ -14,13 +14,13 @@ class GameWindow < Gosu::Window
 
     margin = 10
 
-    @player_paddle = Paddle.new(margin, 0 )
+    @player_paddle = Paddle.new(margin, 0)
 
     @bot_paddle = Paddle.new(self.width - Paddle::WIDTH - margin, 0)
 
-    @ball = Ball.new( GameWindow::WIDTH/2, GameWindow::HEIGHT/2, {:horizontal => 5, :vertical => 5 } )
+    @ball = Ball.new(GameWindow::WIDTH/2, GameWindow::HEIGHT/2, { :horizontal => 5, :vertical => 5 })
 
-    @life = {right: 3, left: 3 }
+    @life = { right: 3, left: 3 }
     @score_font = Gosu::Font.new(50)
   end
 
