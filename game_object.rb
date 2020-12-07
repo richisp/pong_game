@@ -31,4 +31,8 @@ class GameObject
   def center_x_coordinate
     x_coordinate + width/2
   end
+
+  def display(color)
+    Gosu.draw_rect x_coordinate, y_coordinate, width, height, color
+  end
 end

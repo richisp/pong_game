@@ -1,9 +1,11 @@
 require 'gosu'
+require 'singleton'
 
 require_relative 'paddle'
 require_relative 'ball'
 
 class GameWindow < Gosu::Window
+  include Singleton
   attr_reader :life
 
   WIDTH = 1000
@@ -48,6 +50,8 @@ class GameWindow < Gosu::Window
     @ball.display
   end
 
+  private
+
   def draw_background
     Gosu.draw_rect 0, 0, self.width, self.height, Gosu::Color::BLACK
   end
@@ -61,5 +65,5 @@ class GameWindow < Gosu::Window
   end
 end
 
-window = GameWindow.new
+window = GameWindow.instance
 window.show

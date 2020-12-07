@@ -10,6 +10,10 @@ class Ball < GameObject
     @speed = speed
   end
 
+  def display
+    super(Gosu::Color::RED)
+  end
+
   def move
     self.x_coordinate += speed[:horizontal]
     self.y_coordinate += speed[:vertical]
@@ -31,6 +35,8 @@ class Ball < GameObject
       self.x_coordinate = bot_paddle.left_coordinate
     end
   end
+
+  private
 
   def collide_wall?(game_window_height)
     y_coordinate < 0 || bottom_coordinate > game_window_height
@@ -56,9 +62,5 @@ class Ball < GameObject
     end
 
     true
-  end
-
-  def display
-    Gosu.draw_rect x_coordinate, y_coordinate, WIDTH, HEIGHT, Gosu::Color::RED
   end
 end
